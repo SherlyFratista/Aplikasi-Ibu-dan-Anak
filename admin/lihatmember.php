@@ -127,7 +127,7 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Email</th>
@@ -136,22 +136,23 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i=1; ?>
                 <?php foreach ($user as $row) { ?>
                 <tr>
-                    <td><?= $row['id']; ?></td>
+                    <td><?= $i; ?></td>
                     <td><?= $row['username']; ?></td>
                     <td><?= $row['password']; ?></td>
                     <td><?= $row['email']; ?></td>
                     <td><?= $row['name']; ?></td>
                     <td><?= $row['type_user']; ?></td>
-                <?php 
+                <?php $i++;
                 } ?>
 
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Email</th>
