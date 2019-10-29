@@ -13,7 +13,13 @@
        echo "<div align='center'>Password salah! <a href='login.php'>Back</a></div>";
      } else {
        $_SESSION['username'] = $hasil['username'];
-       header('location:index.php');
+       $_SESSION['name'] = $hasil['name'];
+       $_SESSION['type_user'] = $hasil['type_user'];
+	   if ($hasil['type_user'] == 'admin'){
+		   header('location:admin/lihatadmin.php');
+	   } else if ($hasil['type_user'] == 'member'){
+      header('location:index.php');
+	 }
      }
    }
 ?>
