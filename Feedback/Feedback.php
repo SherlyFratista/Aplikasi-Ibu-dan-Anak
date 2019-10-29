@@ -15,20 +15,24 @@ session_start();
 
 
      <body Style ="background-color : white;">   
+         <ul class="nav justify-content-end">
+         <img src="logo.jpg" height="35px" class="logooo" style="float: left; margin-right: 360px;">
+             <li class="nav-item">
+                <a class="nav-link active" href="#" Style ="color : black; font-size: 15px;">Home</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link active" href="#"  Style ="color : black; font-size: 15px;">Bantuan</a>
+             </li>
+             <li class="nav-item">
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#"  Style ="color : black; font-size: 15px;">Feedback</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#"  Style ="color : black; font-size: 15px;">Logout</a>
+             </li>
+         </ul>
     
-        <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="logo" style="width: 50px;">
-        </a>
-        <div class="d-flex flex-row-reverse bd-highlight">
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#moda1Register">Logout</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#exampleModa1Center">Feedback</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#moda1Register">Bantuan</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#exampleModa1Center">Home</a>
-        </div>
-        </div>
-        </nav>
-
   <nav>
   <div  Style ="color : rgb(112, 128, 145); font-size: 20px;">
   <h1><b><center  Style ="background-color : rgb(100, 149, 237)"><br>
@@ -36,6 +40,8 @@ session_start();
   <b></h1></center>
   </div>
   </nav>
+  
+  <div  Style ="color : rgb(112, 128, 145); font-size: 20px;"
 
   <br><br><br>
 
@@ -46,7 +52,7 @@ session_start();
        <b><h5>Berikan Feedback Untuk Kami</h5></b>
        <tr>
        <td><i><p id=content-s style ="color : black">*Masukkan Feedback</i></p>
-       <textarea cols="100" rows="10" Style ="padding : 1px;">Silahkan isi komentar anda</textarea></td><br>
+       <textarea cols="80" rows="10" Style ="padding : 1px;">Silahkan isi komentar anda</textarea></td><br>
        <a class="btn btn-lg btn-primary" href="/docs/4.3/components/navbar/" role="button">Kirim &raquo;</a>
        </div>
        </main>
