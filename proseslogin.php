@@ -18,7 +18,7 @@
 	   if ($hasil['type_user'] == 'admin'){
 		   header('location:admin/lihatadmin.php');
 	   } else if ($hasil['type_user'] == 'member'){
-      header('location:index.php');
+      header('location:Home.php');
 	 }
      }
    }
