@@ -38,7 +38,7 @@ session_start();
             background-color: #C2E8CE;
             margin-bottom: 20px;
         }
-        
+
         .header-paragraph {
             padding-top: 50px;
         }
@@ -71,10 +71,10 @@ session_start();
                     <a class="nav-link active" href="#">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">BANTUAN</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#help">BANTUAN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FEEDBACK</a>
+                    <a class="nav-link" href="#" action="Feedback/Feedback.php">FEEDBACK</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">LOGOUT</a>
@@ -87,13 +87,69 @@ session_start();
         <h2>Umur 27 Tahun</h2>
         <h2>Bandung</h2>
         <div class="header">
+        </div>
+
+        <br>
+        <div class="card-footer text-muted">
+            <center>
+                © 2019 All Rights Reserved by Ibu & Anak
+            </center>
+        </div>
+        <!-- Modal 1 -->
+        <div class="modal fade" id="help" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bantuan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="img/IBU.jpg " alt="logoead" width="110" height="40">
+                                    </div>
+                                    <div class="col">
+                                        <p>Fitur tentang perkembangan sang anak fitruajbsdjkabj uahx jhsjwhduhajdbjas bjdwbdsjbadbx jbdjwbdsabb</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <img src="img/IBU.jpg " alt="logoead" width="110" height="40">
+                                        </div>
+                                        <div class="col">
+                                            <p>Fitur tentang perkembangan sang anak</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="img/IBU.jpg " alt="logoead" width="110" height="40">
+                                    </div>
+                                    <div class="col">
+                                        <p>Fitur tentang perkembangan sang anak</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Mengerti</button>
+                </div>
             </div>
-            <br>
-            <div class="card-footer text-muted">
-                <center>
-                    © 2019 All Rights Reserved by Ibu & Anak
-                </center>
-            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
