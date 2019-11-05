@@ -1,10 +1,15 @@
 <?php
+include "Conn.php";
 session_start();
 ?>
 
 <!DOCTYPE html>
 <html>
      <head>
+        <script>
+        alert ("Selamat Datang Di Website praktikum EAD");
+        </script>
+
         <title> Feedback </title>
         <link rel="stylesheet" type="text/css" href="Style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
