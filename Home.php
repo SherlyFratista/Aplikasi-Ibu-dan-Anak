@@ -25,7 +25,7 @@ session_start();
         }
 
         .section-one {
-            height: 650px;
+            height: 750px;
             width: 100%;
             background: url('img/IBU.jpg');
 
@@ -68,13 +68,13 @@ session_start();
             </div>
             <ul class="nav justify-content-end ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
+                    <a class="nav-link active" href="Home.php">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#help">BANTUAN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" action="Feedback/Feedback.php">FEEDBACK</a>
+                    <a class="nav-link active" href="Feedback/Feedback.php">FEEDBACK</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">LOGOUT</a>
@@ -86,7 +86,33 @@ session_start();
         <h2>Hallo Ibu Annastasia</h2>
         <h2>Umur 27 Tahun</h2>
         <h2>Bandung</h2>
+
         <div class="header">
+        </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+               
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="img/1.PNG" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="img/2.PNG" alt="Second slide">
+                </div>
+        
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
 
         <br>
@@ -143,12 +169,12 @@ session_start();
                             </div>
                         </div>
                     </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Mengerti</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Mengerti</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 
