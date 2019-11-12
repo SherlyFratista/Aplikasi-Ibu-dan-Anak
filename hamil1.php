@@ -1,7 +1,15 @@
+<?php
+require'koneksi.php';
+
+$artikel_ibuhamil = query("SELECT * FROM artikel_ibuhamil");?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>hamil</title>
+
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -10,7 +18,6 @@
 </head>
 
 <body>
-
  <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
         <img src="img/logo.png" alt="logo" style="width: 50px;">
@@ -25,9 +32,9 @@
         </nav>
   <center>
   <div class="card bg-dark text-white">
-  <img src="img/gizi.png" class="card-img" alt="gizi">
+  <img src="" class="card-img" alt="gizi">
   <div class="card-img-overlay">
-    <h1 class="card-title" style="color: black"><strong>Kumpulan Informasi Kehamilan</strong></h1>
+   
     
   </div>
 </div>
@@ -35,7 +42,10 @@
  
  <br>
  <br>
-
+<?php foreach ($artikel_ibuhamil as $hamils) { 
+  $kalimat = $hamils['isi'];
+  $substring = $kalimat = substr($kalimat,0,100);
+  ?>
  <div class="card mb-3" style="max-width: 1300px;">
   <div class="row no-gutters">
     <div class="col-md-4">
@@ -43,29 +53,17 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Informasi Kesehatan Hamil Muda</h5>
-        <p class="card-text">Makanan sehat untuk ibu hamil harus mengandung berbagai macam nutrisi untuk mendukung kehamilan. Selain itu makanan bisa mengatasi berbagai macam gangguan penyakit yang disebabkan karena kekurangan nutrisi tertentu seperti asam folat, kalsium, zat besi, magnesium, vitamin B6, omega 3 dan protein. Semua makanan yang mengandung zat ini sangat penting untuk kesehatan ibu hamil dan calon bayi yang akan dilahirkan.</p>
-        <button type="button" href = "#" class="btn btn-outline-primary">Read More</button>
+        <h5 class="card-title"><?= $hamils['judul']; ?></h5>
+        <p class="card-text"><?= substr( $hamils['isi'],0,100); ?>...</p>
+        <form action='readmore.php?id="<?php echo $hamils['id']; ?>"' method="post">
+        <input type="hidden" name="id" value="<?php echo $hamils['id']; ?>">
+        <button type="submit" aria-label="Close"> Read More
+        </button>
+        </form>
       </div>
     </div>
   </div>
 </div>
-
- <br>
-
- <div class="card mb-3" style="max-width: 1300px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="img/yoga.jpg" class="card-img" alt="kids">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">olah Raga Ibu Hamil</h5>
-        <p class="card-text"></p>
-        <button type="button" href = "#" class="btn btn-outline-primary">Read More</button>
-      </div>
-    </div>
-  </div>
-</div>
+<?php } ?>
 </body>
 </html>
