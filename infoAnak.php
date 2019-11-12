@@ -1,19 +1,11 @@
-<!DOCTYPE html>
 <?php
+require'koneksi.php';
 
-$DBhost = "localhost";
-$DBuser = "root";
-$DBname = "bidan";
-$DBpass = "";
-
-$conn = mysqli_connect($DBhost,$DBuser, $DBpass,$DBname);
-
-if (!$conn) {
-  die("Connection failed: " .mysqli_connect_error());
-}
+$artikel_TumbuhKembangAnak = query("SELECT * FROM artikel_TumbuhKembangAnak");
 
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -51,6 +43,9 @@ if (!$conn) {
 	<br>
 	<br>
 
+  <?php foreach ($artikel_TumbuhKembangAnak as $anak) { 
+  ?>
+
 	<div class="card mb-3" style="max-width: 1300px;">
   <div class="row no-gutters">
     <div class="col-md-4">
@@ -58,31 +53,18 @@ if (!$conn) {
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Kebutuhan Nutrisi Bagi Si Anak</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button type="button"  onclick="location.href='readmoreArticle1.php'" class="btn btn-outline-primary">Read More</button>
+        <h5 class="card-title"> <?= $anak['judul']; ?> </h5>
+        <p class="card-text"> <?= $anak['isi_clickbait']; ?> </p>
+        <button type="button"  onclick="location.href='readmore.php'" class="btn btn-outline-primary">Read More</button>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
 </div>
 
-	<br>
+<?php
+}
+?>
 
-	<div class="card mb-3" style="max-width: 1300px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="img/kids.jpg" class="card-img" alt="kids">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Kenali Gejala Autisme Pada Anak Sejak Dini</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button type="button" href = "#" class="btn btn-outline-primary">Read More</button>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
