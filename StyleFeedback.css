@@ -58,3 +58,13 @@ img{
     margin:auto;
     text-align: center;
 }
+.section-one {
+    height: 650px;
+    width: 100%;
+    background: url('img/IBU.jpg');
+
+}
+p.statusMsg{font-size:18px;}
+p.succdiv{color: #008000;}
+p.errordiv{color:#E80000;}
+
