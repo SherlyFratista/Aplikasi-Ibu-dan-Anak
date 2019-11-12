@@ -15,14 +15,26 @@
        
         <li class="treeview active">
           <a href="#">
-            <i class="fa fa-table"></i> <span>User</span>
+            <i class="fa fa-edit"></i> <span>Admin</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="lihatadmin.php"><i class="fa fa-circle-o"></i> Lihat Admin</a></li>
-            <li class="active"><a href="lihatmember.php"><i class="fa fa-circle-o"></i> Lihat Member</a></li>
+            <li ><a href="tambahadmin.php"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview active">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Member</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+            <li ><a href="lihatmember.php"><i class="fa fa-circle-o"></i> Lihat Member</a></li>
           </ul>
         </li>
       </ul>
