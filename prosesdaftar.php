@@ -15,7 +15,7 @@
        echo "<div align='center'>Masih ada data yang kosong! ";
        ?> <META HTTP-EQUIV="refresh" CONTENT="3;URL=daftar.php"> <?php
      } else {
-       $data = "INSERT INTO users VALUES (NULL, '$username', '$pass', '$email', '$name', 'member')";
+       $data =  "INSERT INTO users(id,username,password,email,name,type_user) VALUES (NULL, '$username', '$pass', '$email', '$name', 'member')";
        $simpan = $db->query($data);
        if($simpan) {
          echo "<div align='center'>Pendaftaran Sukses</div>";

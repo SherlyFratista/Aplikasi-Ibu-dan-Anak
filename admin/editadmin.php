@@ -34,71 +34,6 @@ $user = query("SELECT * FROM users where id = '$id' ");
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
-<div class="wrapper">
-
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="../index.php" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>IdB</b></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Ibu dan Bayi</b></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-       
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">  <?php echo $name;?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                <?php echo $name;?>
-                 
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-              
-                <div class="pull-right">
-                  <a href="../logout.php" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
   <?php require'sidebar.php'; ?>
     <!-- /.sidebar -->
   </aside>
@@ -131,19 +66,19 @@ $user = query("SELECT * FROM users where id = '$id' ");
               <div class="box-body">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>">
+                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
                 </div>
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" name="password" class="form-control" id="password" value="<?=$u['password']; ?>">
+                  <input type="password" name="password" class="form-control" id="password" value="<?=$u['password']; ?>" required>
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email" name="email" class="form-control" id="email" value="<?=$u['email'];?>">
+                  <input type="email" name="email" class="form-control" id="email" value="<?=$u['email'];?>" required>
                 </div>
                 <div class="form-group">
                   <label>Name</label>
-                  <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>">
+                  <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>" required>
                 </div>
                
               </div>

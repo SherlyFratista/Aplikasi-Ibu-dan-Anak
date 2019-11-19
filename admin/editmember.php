@@ -1,15 +1,16 @@
 <?php
 require'../koneksi.php';
 require'authadmin.php';
+$id = $_POST['id'];
 $name = $_SESSION['name']; 
-$user = query("SELECT * FROM users where type_user = 'member' ");
+$user = query("SELECT * FROM users where id = '$id' ");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lihat Data Member</title>
+  <title>Edit Nenber</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -32,7 +33,7 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-</head>
+  </head>
   <?php require'sidebar.php'; ?>
     <!-- /.sidebar -->
   </aside>
@@ -42,87 +43,64 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Member
+        Edit Admin
       </h1>
      
     </section>
-
+ 
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Email</th>
-                  <th>Nama</th>
-                  <th>Tipe User</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php $i=1; ?>
-                <?php foreach ($user as $row) { ?>
-                <tr>
-                    <td><?= $i; ?></td>
-                    <td><?= $row['username']; ?></td>
-                    <td><?= $row['password']; ?></td>
-                    <td><?= $row['email']; ?></td>
-                    <td><?= $row['name']; ?></td>
-                    <td><?= $row['type_user']; ?></td>
-                    <td class="contact-delete">
-                        <form action='editmember.php?id="<?php echo $row['id']; ?>"' method="post">
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <button type="submit" class="fa fa-edit">
-                            </button>
-                        </form>
-                    </td>
-                    <td class="contact-delete">
-                        <form action='prosesdeletemember.php?id="<?php echo $row['id']; ?>"' method="post">
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <button type="submit" class="close" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </form>
-                    </td>
-                <?php $i++;
-                } ?>
-
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>No</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Email</th>
-                  <th>Nama</th>
-                  <th>Tipe User</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-                </tfoot>
-              </table>
+           
+            <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Form</h3>
             </div>
-            <!-- /.box-body -->
+         
+            <?php foreach($user as $u) {?>
+            <!-- form start -->
+            <form role="form" method="post" action="proseseditmember.php">
+                <input type="hidden" value="<?=$u['id'];?>" name="id">
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" name="password" class="form-control" id="password" value="<?=$u['password']; ?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control" id="email" value="<?=$u['email'];?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>" required>
+                </div>
+               
+              </div>
+             
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+            <?php } ?>
           </div>
-          <!-- /.box -->
-          <!-- /.box -->
+      
+          </div>
+        
         </div>
-        <!-- /.col -->
+        
+        </div>
+      
       </div>
-      <!-- /.row -->
+    
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.5
@@ -324,7 +302,6 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-</div>
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
