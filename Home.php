@@ -19,24 +19,37 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
-        body {
+        /* body {
 
-            /* background: url('img/IBU.jpg'); */
+            background-image: url('img/momy.jpg');
+           
         }
 
         .section-one {
             height: 750px;
             width: 100%;
-            background: url('img/IBU.jpg');
+            background: url('img/momy.jpg');
 
+        } */
+
+        .one {
+            background-image: url('img/momy.jpg');
+            background-size: cover;
         }
 
         .header {
-            margin-left: 13%;
-            width: 72%;
+            /* margin-left: 13%; */
+            width: 100%;
             height: 200px;
-            background-color: #C2E8CE;
             margin-bottom: 20px;
+        }
+        .container{
+            background-color: #6fd9d6;
+        }
+
+        .navbar-default {
+            background: rgba(0, 0, 0, 0);
+
         }
 
         .header-paragraph {
@@ -61,10 +74,10 @@ session_start();
 </head>
 
 <body>
-    <div class="section-one">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="one">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="#">
-                <img src="img/IBU.jpg " alt="logIbuAnak" width="200" height="200">
+                <img src="img/IBU.png " alt="logIbuAnak" width="200" height="200">
             </div>
             <ul class="nav justify-content-end ml-auto">
                 <li class="nav-item">
@@ -83,18 +96,31 @@ session_start();
 
         </nav>
         <img src="img/Miyong.jpg" class="rounded mx-auto d-block rounded-circle" style="width: 300px;" alt="logoIbuAnak">
-        <h2>Hallo Ibu Annastasia</h2>
+        <h2>Hallo Ibu Ariana</h2>
         <h2>Umur 27 Tahun</h2>
         <h2>Bandung</h2>
 
         <div class="header">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-4 ">
+                    <a href="Feedback.php"><img src="img/abc.png" alt="logoABC" style="width:100%; height: 70%;"></a> 
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="img/book.png" alt="logoBook" style="width: 100%; height: 70%;">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="img/darurat.png" alt="logoDarurat" style="width: 100%; height: 70%;">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-               
+
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -103,7 +129,7 @@ session_start();
                 <div class="carousel-item">
                     <img class="d-block w-100" src="img/2.PNG" alt="Second slide">
                 </div>
-        
+
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
