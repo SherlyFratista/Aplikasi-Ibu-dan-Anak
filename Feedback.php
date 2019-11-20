@@ -8,10 +8,6 @@ session_start();
 <!DOCTYPE html>
 <html>
      <head>
-        <script>
-        alert ("Feedback Anda Sangat Berharga Bagi Kami");
-        </script>
-
         <title> Feedback </title>
         <link rel="stylesheet" type="text/css" href="StyleFeedback.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,32 +16,11 @@ session_start();
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      </head>
 
-<body">
-      <div class="section-one">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="#" style="background-color:white;">
-                <img src="img/IBU.jpg " alt="FeedbackIbuAnak" width="50" height="50">
-            </div>
-            <ul class="nav justify-content-end ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#help">BANTUAN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" action="Feedback/Feedback.php">FEEDBACK</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">LOGOUT</a>
-                </li>
-            </ul>
-        </nav>
-    
+
   <nav>
   <div  Style ="color : rgb(112, 128, 145); font-size: 20px;">
   <h1><b><center  Style ="background-color : rgb(100, 149, 237)"><br>
-  Feedback
+  <p style ="color : white; font-size:40px;"> Feedback</p>
   <b></h1></center>
   </div>
   </nav>
@@ -55,28 +30,15 @@ session_start();
   <br><br><br>
 
   <center>
-       <form action="config.php" method="GET" class="section-one">  
-            <?php if(!empty($statusFeedback)){ 
-            ?>
-            <p class="statusMsg 
-            <?php echo !empty($msgClass)?$msgClass:''; 
-            ?>">
-            <?php echo $statusMsg; 
-            ?></p>
-            <?php } 
-            ?>  
+       <form action="KirimFeedback.php" method="POST" class="section-one">  
         <main role="main" class="container">
         <div class="jumbotron">
         <b><h5>Berikan Feedback Untuk Kami</h5></b><br>
         <tr>
-        <td>Name
-        <input type="text" name="name" placeholder="Nama Anda" required=""></td>
-        <td>Email
-        <input type="email" name="email" placeholder="email@example.com" required=""><td><br>
+        <td> Email :<input type="email" name="email" placeholder="email@example.com" required=""><td><br>
         <td><i><p id=content-s style ="color : black; font-size:13px;">*Masukkan Feedback</i></p>
         <textarea cols="80" rows="10" Style ="padding : 1px;"placeholder="Silahkan isi Komentar Anda" required="" name="message"></textarea></td><br>
-        <input type="submit" name="submit" value="Submit">
-        <div class="clear"> </div>
+        <td><input type="submit" name="submit" value="Submit"></td>
         </div>
         </form>
         </main>
