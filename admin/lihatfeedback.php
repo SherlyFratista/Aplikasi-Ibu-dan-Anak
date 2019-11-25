@@ -1,16 +1,15 @@
 <?php
 require'../koneksi.php';
 require'authadmin.php';
-$id = $_POST['id'];
 $name = $_SESSION['name']; 
-$user = query("SELECT * FROM users where id = '$id' ");
+$user = query("SELECT * FROM feedback ");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit Admin</title>
+  <title>Lihat Data Feedback</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -43,73 +42,65 @@ $user = query("SELECT * FROM users where id = '$id' ");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit Admin
+        Data Feedback
       </h1>
      
     </section>
- 
+
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-           
-            <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Form</h3>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Isi Feedback</th>
+                  <th>Email</th>
+                  <th>ID User</th>
+                  <th>Tanggal_Feedback</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php $i=1; ?>
+                <?php foreach ($user as $row) { ?>
+                <tr>
+                    <td><?= $i; ?></td>
+                    <td><?= $row['message']; ?></td>
+                    <td><?= $row['email']; ?></td>
+                    <td><?= $row['username']; ?></td>
+                    <td><?= $row['tanggal_feedback']; ?></td>
+                <?php $i++;
+                } ?>
+
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>No</th>
+                  <th>Isi Feedback</th>
+                  <th>Email</th>
+                  <th>ID User</th>
+                  <th>Tanggal_Feedback</th>
+                </tr>
+                </tfoot>
+              </table>
             </div>
-         
-            <?php foreach($user as $u) {?>
-            <!-- form start -->
-            <form role="form" method="post" action="proseseditadmin.php">
-                <input type="hidden" value="<?=$u['id'];?>" name="id">
-              <div class="box-body">
-                <div class="form-group">
-                  <label>Username</label>
-                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
-                </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" name="password" class="form-control" id="password" value="<?=$u['password']; ?>" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" name="email" class="form-control" id="email" value="<?=$u['email'];?>" required>
-                </div>
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>" required>
-                </div>
-                <div class="form-group">
-                  <label>Tanggal Lahir</label>
-                  <input type="date" name="tgl_lahir" class="form-control" id="name"value="<?=$u['tgl_lahir'];?>"required >
-                </div>
-                <div class="form-group">
-                  <label>Tempat Lahir</label>
-                  <input type="text" name="tempat_lahir" class="form-control" id="name"value="<?=$u['tempat_lahir'];?>" required>
-                </div>
-               
-               
-              </div>
-             
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-            <?php } ?>
+            <!-- /.box-body -->
           </div>
-      
-          </div>
-        
+          <!-- /.box -->
+          <!-- /.box -->
         </div>
-        
-        </div>
-      
+        <!-- /.col -->
       </div>
-    
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
@@ -310,6 +301,7 @@ $user = query("SELECT * FROM users where id = '$id' ");
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->

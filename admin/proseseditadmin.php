@@ -5,8 +5,9 @@ require_once("../koneksi.php");
    $name = $_POST['name'];
    $username = $_POST['username'];
    $password = $_POST['password'];
-   
-    $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name' WHERE id='$id'";
+   $tgl_lahir = $_POST['tgl_lahir'];
+   $tempat_lahir = $_POST['tempat_lahir'];
+    $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name',tgl_lahir='$tgl_lahir',tempat_lahir='$tempat_lahir' WHERE id='$id'";
     $simpan = $db->query($data);
     if($simpan) {
       echo "<div align='center'>Update Sukses</div>";

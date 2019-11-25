@@ -63,6 +63,8 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
                   <th>Email</th>
                   <th>Nama</th>
                   <th>Tipe User</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Tempat Lahir</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -77,6 +79,8 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
                     <td><?= $row['email']; ?></td>
                     <td><?= $row['name']; ?></td>
                     <td><?= $row['type_user']; ?></td>
+                    <td><?= $row['tgl_lahir']; ?></td>
+                    <td><?= $row['tempat_lahir']; ?></td>
                     <td class="contact-delete">
                         <form action='editmember.php?id="<?php echo $row['id']; ?>"' method="post">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -125,9 +129,8 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.5
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 Ibu dan Anak </a>.</strong> All rights
     reserved.
   </footer>
 

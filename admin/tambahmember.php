@@ -76,6 +76,13 @@ $name = $_SESSION['name'];
                   <label>Name</label>
                   <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                 </div>
+                <div class="form-group">
+                  <label>Tanggal Lahir</label>
+                  <input type="date" name="tgl_lahir" class="form-control" id="name" placeholder="Enter Name" required>
+                </div><div class="form-group">
+                  <label>Tempat Lahir</label>
+                  <input type="text" name="tempat_lahir" class="form-control" id="name" placeholder="Enter Name" required>
+                </div>
                
               </div>
              
@@ -98,9 +105,8 @@ $name = $_SESSION['name'];
   </div>
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.5
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 Ibu dan Anak </a>.</strong> All rights
     reserved.
   </footer>
 

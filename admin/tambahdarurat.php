@@ -1,16 +1,14 @@
 <?php
 require'../koneksi.php';
 require'authadmin.php';
-$id = $_POST['id'];
 $name = $_SESSION['name']; 
-$user = query("SELECT * FROM users where id = '$id' ");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit Admin</title>
+  <title>Tambah Data Darurat</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -43,7 +41,7 @@ $user = query("SELECT * FROM users where id = '$id' ");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit Admin
+        Tambah Data Darurat
       </h1>
      
     </section>
@@ -59,44 +57,43 @@ $user = query("SELECT * FROM users where id = '$id' ");
               <h3 class="box-title">Form</h3>
             </div>
          
-            <?php foreach($user as $u) {?>
             <!-- form start -->
-            <form role="form" method="post" action="proseseditadmin.php">
-                <input type="hidden" value="<?=$u['id'];?>" name="id">
+            <form role="form" method="post" action="prosestambahdarurat.php" enctype="multipart/form-data"">
               <div class="box-body">
                 <div class="form-group">
-                  <label>Username</label>
-                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
+                  <label>Nama Rumah Sakit</label>
+                  <input type="text" name="nama_rs" class="form-control"  placeholder="Masukkan Nama RS" required>
                 </div>
                 <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" name="password" class="form-control" id="password" value="<?=$u['password']; ?>" required>
+                  <label>Alamat</label>
+                  <input type="text" name="alamat" class="form-control"  placeholder="Masukkan Alamat" required>
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" name="email" class="form-control" id="email" value="<?=$u['email'];?>" required>
+                  <label>Telepon</label>
+                  <input type="number" name="telepon" class="form-control"  placeholder="Masukkan Telepon" required>
                 </div>
                 <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>" required>
+                <label>Minimal</label>
+                <select name="kab" class="form-control select2" style="width: 100%;">
+                  <option selected="selected" name="Kota Bandung" value="Kota Bandung"">Kota Bandung</option>
+                  <option name="Kabupaten Bandung Barat" value="Kabupaten Bandung Barat">Kabupaten Bandung Barat</option>
+                  <option name="Kabupaten Bandung" value="Kabupaten Bandung">Kabupaten Bandung</option>
+                </select>
+              </div>
+                <div class="form-group">
+                  <label>URL Google Maps</label>
+                  <input type="text" name="url" class="form-control"  placeholder="Masukkan URL" required>
                 </div>
                 <div class="form-group">
-                  <label>Tanggal Lahir</label>
-                  <input type="date" name="tgl_lahir" class="form-control" id="name"value="<?=$u['tgl_lahir'];?>"required >
+                  <label>Gambar</label>
+                  <input type="file" name="file" class="form-control"  required>
                 </div>
-                <div class="form-group">
-                  <label>Tempat Lahir</label>
-                  <input type="text" name="tempat_lahir" class="form-control" id="name"value="<?=$u['tempat_lahir'];?>" required>
-                </div>
-               
-               
               </div>
              
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
-            <?php } ?>
           </div>
       
           </div>

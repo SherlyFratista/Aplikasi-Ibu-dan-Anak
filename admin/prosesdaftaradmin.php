@@ -4,6 +4,8 @@
    $pass = $_POST['password'];
    $email = $_POST['email'];
    $name = $_POST['name'];
+   $tgl_lahir = $_POST['tgl_lahir'];
+   $tempat_lahir = $_POST['tempat_lahir'];
    $sql = "SELECT * FROM users WHERE username = '$username'";
    $query = $db->query($sql);
    if($query->num_rows != 0) {
@@ -15,7 +17,7 @@
        echo "<div align='center'>Masih ada data yang kosong! ";
        ?> <META HTTP-EQUIV="refresh" CONTENT="3;URL=tambahadmin.php"> <?php
      } else {
-       $data = "INSERT INTO users(id,username,password,email,name,type_user) VALUES (NULL, '$username', '$pass', '$email', '$name', 'admin')";
+       $data = "INSERT INTO users(id,username,password,email,name,type_user,tgl_lahir,tempat_lahir) VALUES (NULL, '$username', '$pass', '$email', '$name', 'admin','$tgl_lahir', '$tempat_lahir')";
       
        $simpan = $db->query($data);
        if($simpan) {

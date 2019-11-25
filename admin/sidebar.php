@@ -4,7 +4,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../index.php" class="logo">
+    <a href="../home.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>IdA</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -79,7 +79,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
        
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Admin</span>
                 <span class="pull-right-container">
@@ -92,7 +92,7 @@
           </ul>
         </li>
 
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Member</span>
                 <span class="pull-right-container">
@@ -102,6 +102,54 @@
           <ul class="treeview-menu">
             <li ><a href="lihatmember.php"><i class="fa fa-circle-o"></i> Lihat Member</a></li>
             <li ><a href="tambahmember.php"><i class="fa fa-circle-o"></i> Tambah Member</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Feedback</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+            <li ><a href="lihatfeedback.php"><i class="fa fa-circle-o"></i> Lihat Feedback</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Artikel Informasi</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+          <li ><a href="lihatartikelinformasi.php"><i class="fa fa-circle-o"></i> Lihat Artikel Informasi</a></li>
+           <li ><a href="tambahartikelinformasi.php"><i class="fa fa-circle-o"></i> Tambah Artikel Informasi</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Artikel Info Anak</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+          <li ><a href="lihatartikeltumbuhkembanganak.php"><i class="fa fa-circle-o"></i> Lihat Artikel Info Anak</a></li>
+            <li ><a href="tambahartikeltumbuhkembanganak.php"><i class="fa fa-circle-o"></i> Tambah Artikel Info Anak</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Darurat</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+          <li ><a href="lihatdarurat.php"><i class="fa fa-circle-o"></i> Lihat Data Darurat</a></li>
+            <li ><a href="tambahdarurat.php"><i class="fa fa-circle-o"></i> Tambah Data Darurat</a></li>
           </ul>
         </li>
       </ul>

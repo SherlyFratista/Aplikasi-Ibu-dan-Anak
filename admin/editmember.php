@@ -43,7 +43,7 @@ $user = query("SELECT * FROM users where id = '$id' ");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit Admin
+        Edit Member
       </h1>
      
     </section>
@@ -80,6 +80,14 @@ $user = query("SELECT * FROM users where id = '$id' ");
                   <label>Name</label>
                   <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>" required>
                 </div>
+                <div class="form-group">
+                  <label>Tanggal Lahir</label>
+                  <input type="date" name="tgl_lahir" class="form-control" id="name"value="<?=$u['tgl_lahir'];?>"required >
+                </div>
+                <div class="form-group">
+                  <label>Tempat Lahir</label>
+                  <input type="text" name="tempat_lahir" class="form-control" id="name"value="<?=$u['tempat_lahir'];?>" required>
+                </div>
                
               </div>
              
@@ -103,9 +111,8 @@ $user = query("SELECT * FROM users where id = '$id' ");
   </div>
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.5
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 Ibu dan Anak </a>.</strong> All rights
     reserved.
   </footer>
 

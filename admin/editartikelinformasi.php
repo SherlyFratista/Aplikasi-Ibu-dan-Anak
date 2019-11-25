@@ -1,16 +1,16 @@
 <?php
 require'../koneksi.php';
 require'authadmin.php';
-$id = $_POST['id'];
 $name = $_SESSION['name']; 
-$user = query("SELECT * FROM users where id = '$id' ");
+$id = $_POST['id'];
+$artikel = query("SELECT * FROM artikel_informasi where id = '$id'");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit Admin</title>
+  <title>Edit Artikel Informasi</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -43,7 +43,7 @@ $user = query("SELECT * FROM users where id = '$id' ");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit Admin
+        Tambah Artikel Informasi
       </h1>
      
     </section>
@@ -58,38 +58,24 @@ $user = query("SELECT * FROM users where id = '$id' ");
             <div class="box-header with-border">
               <h3 class="box-title">Form</h3>
             </div>
-         
-            <?php foreach($user as $u) {?>
+            <?php foreach($artikel as $a) {?>
             <!-- form start -->
-            <form role="form" method="post" action="proseseditadmin.php">
-                <input type="hidden" value="<?=$u['id'];?>" name="id">
+            <form role="form" method="post" action="proseseditartikelinformasi.php" enctype="multipart/form-data"">
               <div class="box-body">
                 <div class="form-group">
-                  <label>Username</label>
-                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
+                <input value="<?= $a['id']; ?>" type="hidden" name="id" class="form-control">
+                
+                  <label>Judul</label>
+                  <input value="<?= $a['judul']; ?>" type="text" name="judul" class="form-control"  placeholder="Masukkan Judul" required>
                 </div>
                 <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" name="password" class="form-control" id="password" value="<?=$u['password']; ?>" required>
+                  <label>Gambar</label>
+                  <input  type="file" name="file" class="form-control"  required>
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" name="email" class="form-control" id="email" value="<?=$u['email'];?>" required>
+                  <label>Isi</label>  <small><br> masukkan tag "< br >" untuk Line Break </small>
+                  <textarea class="textarea" name="isi" placeholder="Isi" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?= $a['isi']; ?></textarea>
                 </div>
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" name="name" class="form-control" id="name"value="<?=$u['name'];?>" required>
-                </div>
-                <div class="form-group">
-                  <label>Tanggal Lahir</label>
-                  <input type="date" name="tgl_lahir" class="form-control" id="name"value="<?=$u['tgl_lahir'];?>"required >
-                </div>
-                <div class="form-group">
-                  <label>Tempat Lahir</label>
-                  <input type="text" name="tempat_lahir" class="form-control" id="name"value="<?=$u['tempat_lahir'];?>" required>
-                </div>
-               
-               
               </div>
              
               <div class="box-footer">
