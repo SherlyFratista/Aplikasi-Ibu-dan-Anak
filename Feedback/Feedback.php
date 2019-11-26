@@ -1,6 +1,6 @@
 <?php
 
-require'koneksi.php';
+include "koneksi.php";
 require'auth.php';
 
 ?>

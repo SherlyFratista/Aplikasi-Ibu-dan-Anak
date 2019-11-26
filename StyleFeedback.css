@@ -62,9 +62,10 @@ img{
     height: 650px;
     width: 100%;
     background: url('img/IBU.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
 }
-p.statusMsg{font-size:18px;}
-p.succdiv{color: #008000;}
-p.errordiv{color:#E80000;}
+
 
