@@ -1,6 +1,6 @@
 <?php
 require'koneksi.php';
-
+require'auth.php';
 $artikel_TumbuhKembangAnak = query("SELECT * FROM artikel_TumbuhKembangAnak");
 
 ?>
@@ -18,18 +18,9 @@ $artikel_TumbuhKembangAnak = query("SELECT * FROM artikel_TumbuhKembangAnak");
 
 <body>
 
-	<nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-        <img src="img/logo.png" alt="logo" style="width: 50px;">
-        </a>
-        <div class="d-flex flex-row-reverse bd-highlight">
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#moda1Register">Logout</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#exampleModa1Center">Feedback</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#moda1Register">Bantuan</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#exampleModa1Center">Home</a>
-        </div>
-        </div>
-        </nav>
+<?php
+require'navbar.php';
+?>
   <center>
   <div class="card bg-dark text-white">
   <img src="img/breakfast.jpg" class="card-img" alt="breakfast">
@@ -49,14 +40,13 @@ $artikel_TumbuhKembangAnak = query("SELECT * FROM artikel_TumbuhKembangAnak");
 	<div class="card mb-3" style="max-width: 1300px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="img/kenali-nutrisi-otak-yang-mendukung-kehebatan-anak_1166_shutterstock_568555759__1568268610_52695.jpg" class="card-img" alt="baby">
+      <img src="img/artikel_tumbuhkembanganak/<?= $anak['gambar']; ?>" class="card-img" alt="baby">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"> <?= $anak['judul']; ?> </h5>
-        <p class="card-text"> <?= $anak['isi_clickbait']; ?> </p>
-        <button type="button"  onclick="location.href='readmore.php'" class="btn btn-outline-primary">Read More</button>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"> <b> <?= $anak['judul']; ?> </b></h5> 
+        <p class="card-text"> <?= substr( $anak['isi'],0,300); ?>... </p>
+        <button type="button"  onclick="location.href='readmore_tumbuhkembanganak.php?id=<?= $anak['id']; ?>'" class="btn btn-outline-primary">Read More</button>
       </div>
     </div>
   </div>
