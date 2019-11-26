@@ -3,6 +3,7 @@ require '../koneksi.php';
 require 'authadmin.php';
 $id = $_POST['id'];
 $name = $_SESSION['name'];
+$username = $_SESSION['username'];
 $user = query("SELECT * FROM users where id = '$id' ");
 ?>
 <!DOCTYPE html>
@@ -69,7 +70,7 @@ $user = query("SELECT * FROM users where id = '$id' ");
                   <img src="http://localhost/final2/img/user2-160x160.jpg" style="width:200px;">
                 <?php
                   } else { ?>
-                  <img src="../img/photo/<?= $u['photo']; ?>" style="width:200px; ">
+                  <img src="../img/photo/<?= $u['username']; ?>/<?= $u['photo']; ?>" style="width:200px; ">
                 <?php }
                   ?>
               </center>

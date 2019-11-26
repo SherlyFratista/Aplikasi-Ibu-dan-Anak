@@ -9,11 +9,12 @@ require_once("../koneksi.php");
    $tempat_lahir = $_POST['tempat_lahir'];
    $gambar = $_FILES['file']['name'];
    $file_tmp = $_FILES['file']['tmp_name'];
-   move_uploaded_file($file_tmp, '../img/photo/' .$username.'-'.$gambar);
+    mkdir('../img/photo/'.$username.'/');
+    move_uploaded_file($file_tmp, '../img/photo/' .$username.'/'.$gambar);
    if (empty($gambar)) {
     $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name',tgl_lahir='$tgl_lahir',tempat_lahir='$tempat_lahir' WHERE id='$id'";
     } else {
-    $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name',tgl_lahir='$tgl_lahir',tempat_lahir='$tempat_lahir',photo='$username-$gambar' WHERE id='$id'";
+    $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name',tgl_lahir='$tgl_lahir',tempat_lahir='$tempat_lahir',photo='$gambar' WHERE id='$id'";
     } $simpan = $db->query($data);
     if($simpan) {
       echo "<div align='center'>Update Sukses</div>";

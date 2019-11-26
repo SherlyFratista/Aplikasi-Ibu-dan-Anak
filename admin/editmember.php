@@ -62,15 +62,16 @@ $user = query("SELECT * FROM users where id = '$id' ");
             <?php foreach($user as $u) {?>
               
             <center>
-              <?php
+            <?php
                   if (empty($u['photo'])) {
                     ?>
                   <img src="http://localhost/final2/img/user2-160x160.jpg" style="width:200px;">
                 <?php
                   } else { ?>
-                  <img src="../img/photo/<?= $u['photo']; ?>" style="width:200px; ">
+                  <img src="../img/photo/<?= $u['username']; ?>/<?= $u['photo']; ?>" style="width:200px; ">
                 <?php }
-                  ?></center>
+                  ?>
+                  </center>
             <!-- form start -->
             <form role="form" method="post" action="proseseditmember.php" enctype="multipart/form-data">
                 <input type="hidden" value="<?=$u['id'];?>" name="id">
