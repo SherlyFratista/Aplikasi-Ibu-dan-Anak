@@ -60,13 +60,24 @@ $user = query("SELECT * FROM users where id = '$id' ");
             </div>
          
             <?php foreach($user as $u) {?>
+              
+            <center>
+              <?php
+                  if (empty($u['photo'])) {
+                    ?>
+                  <img src="http://localhost/final2/img/user2-160x160.jpg" style="width:200px;">
+                <?php
+                  } else { ?>
+                  <img src="../img/photo/<?= $u['photo']; ?>" style="width:200px; ">
+                <?php }
+                  ?></center>
             <!-- form start -->
-            <form role="form" method="post" action="proseseditmember.php">
+            <form role="form" method="post" action="proseseditmember.php" enctype="multipart/form-data">
                 <input type="hidden" value="<?=$u['id'];?>" name="id">
               <div class="box-body">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
+                  <input readonly  type="text" name="username" class="form-control" id="username" value="<?=$u['username']; ?>" required>
                 </div>
                 <div class="form-group">
                   <label>Password</label>
@@ -87,6 +98,10 @@ $user = query("SELECT * FROM users where id = '$id' ");
                 <div class="form-group">
                   <label>Tempat Lahir</label>
                   <input type="text" name="tempat_lahir" class="form-control" id="name"value="<?=$u['tempat_lahir'];?>" required>
+                </div>
+                <div class="form-group">
+                  <label>Upload Gambar</label>
+                  <input type="file" name="file" class="form-control">
                 </div>
                
               </div>

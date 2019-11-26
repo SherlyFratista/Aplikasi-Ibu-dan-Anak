@@ -7,8 +7,14 @@ require_once("../koneksi.php");
    $password = $_POST['password'];
    $tgl_lahir = $_POST['tgl_lahir'];
    $tempat_lahir = $_POST['tempat_lahir'];
+   $gambar = $_FILES['file']['name'];
+   $file_tmp = $_FILES['file']['tmp_name'];
+   move_uploaded_file($file_tmp, '../img/photo/' .$username.'-'.$gambar);
+   if (empty($gambar)) {
     $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name',tgl_lahir='$tgl_lahir',tempat_lahir='$tempat_lahir' WHERE id='$id'";
-    $simpan = $db->query($data);
+    } else {
+    $data = "UPDATE users SET email='$email',password='$password',username='$username',name='$name',tgl_lahir='$tgl_lahir',tempat_lahir='$tempat_lahir',photo='$username-$gambar' WHERE id='$id'";
+    } $simpan = $db->query($data);
     if($simpan) {
       echo "<div align='center'>Update Sukses</div>";
       header('location:lihatmember.php');

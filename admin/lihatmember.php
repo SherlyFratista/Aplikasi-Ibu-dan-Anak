@@ -65,6 +65,7 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
                   <th>Tipe User</th>
                   <th>Tanggal Lahir</th>
                   <th>Tempat Lahir</th>
+                  <th>Gambar</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -81,6 +82,7 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
                     <td><?= $row['type_user']; ?></td>
                     <td><?= $row['tgl_lahir']; ?></td>
                     <td><?= $row['tempat_lahir']; ?></td>
+                    <td><?= $row['photo']; ?></td>
                     <td class="contact-delete">
                         <form action='editmember.php?id="<?php echo $row['id']; ?>"' method="post">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -102,13 +104,15 @@ $user = query("SELECT * FROM users where type_user = 'member' ");
                 </tr>
                 </tbody>
                 <tfoot>
-                <tr>
-                  <th>No</th>
+                <tr><th>No</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Email</th>
                   <th>Nama</th>
                   <th>Tipe User</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Tempat Lahir</th>
+                  <th>Gambar</th>
                   <th></th>
                   <th></th>
                 </tr>
