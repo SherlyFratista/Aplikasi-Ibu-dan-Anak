@@ -1,70 +1,108 @@
 <?php
-require'koneksi.php';
-
-$artikel_TumbuhKembangAnak = query("SELECT * FROM artikel_TumbuhKembangAnak");
-
+require 'koneksi.php';
+session_start();
+$name = $_SESSION['name'];
+$id = $_SESSION['id'];
+$username = $_SESSION['username'];
+$email = $_SESSION['email'];
+$birthday = $_SESSION['birthday'];
+$birthplace = $_SESSION['tempat_lahir'];
+$password = $_SESSION['password'];
+$photo = $_SESSION['photo'];
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
+    <title></title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
+<style>
+    .grad {
+        background-image: linear-gradient(to right, rgb(54, 182, 186), rgb(255, 255, 255));
+    }
+</style>
 
-<body>
+<body class="grad">
 
-	<nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-        <img src="img/logo.png" alt="logo" style="width: 50px;">
-        </a>
-        <div class="d-flex flex-row-reverse bd-highlight">
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#moda1Register">Logout</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#exampleModa1Center">Feedback</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#moda1Register">Bantuan</a>
-            <a class="navbar-text" href="#" style="padding: 20px;" data-toggle="moda1" data-target="#exampleModa1Center">Home</a>
+    <div class="container">
+        <h1>Edit Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- edit form column -->
+            <div class="col-md-12 personal-info">
+                <h3>Personal info</h3>
+                <form class="form-horizontal" action="prosesupdate.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <div class="form-group">
+                    <label class="col-lg-3 control-label">Profile Image:</label>
+                    <div class="text-center">
+                        <div class="col-lg-8">
+                            <?php if ($photo != null) { ?>
+                                <img src="img/photo/<?php echo $username; ?>/<?php echo $photo; ?>" class="rounded mx-auto d-block rounded-circle" style="width: 200px;" height="200px;" alt="avatar">
+                            <?php } else { ?>
+                                <img src="//placehold.it/100" class="rounded mx-auto d-block rounded-circle" style="width: 200px;" height="200px;" alt="avatar">
+                            <?php } ?>
+                            <h6>Upload a different photo...</h6>
+                            <input class="form-control" name="photo" type="file">
+                        </div>
+                    </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Username:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="username" type="text" value="<?php echo $username; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Name:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" name="name" value="<?php echo $name; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="email" name="email" value="<?php echo $email; ?>" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Tanggal Lahir:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="date" name="tgl_lahir" value="<?php echo $birthday; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Tempat Lahir:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="tempat_lahir" value="<?php echo $birthplace; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="password" value="<?php echo $password; ?>" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Save Changes">
+                                <span></span>
+                                <input type="reset" class="btn btn-default" value="Cancel" onclick="location.href='home.php';">
+                            </div>
+                        </div>
+                </form>
+            </div>
         </div>
-        </div>
-        </nav>
-  <center>
-  <div class="card bg-dark text-white">
-  <img src="img/breakfast.jpg" class="card-img" alt="breakfast">
-  <div class="card-img-overlay">
-    <h1 class="card-title" style="color: black">Tumbuh Kembang Anak</h1>
-    
-  </div>
-</div>
-</center>
-	
-	<br>
-	<br>
-
-  <?php foreach ($artikel_TumbuhKembangAnak as $anak) { 
-  ?>
-
-	<div class="card mb-3" style="max-width: 1300px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="img/kenali-nutrisi-otak-yang-mendukung-kehebatan-anak_1166_shutterstock_568555759__1568268610_52695.jpg" class="card-img" alt="baby">
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"> <?= $anak['judul']; ?> </h5>
-        <p class="card-text"> <?= $anak['isi_clickbait']; ?> </p>
-        <button type="button"  onclick="location.href='readmore.php'" class="btn btn-outline-primary">Read More</button>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<?php
-}
-?>
+    <hr>
 
 </body>
+
 </html>

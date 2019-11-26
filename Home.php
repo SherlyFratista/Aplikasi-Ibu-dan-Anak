@@ -2,12 +2,14 @@
 
 include "koneksi.php";
 session_start();
+$username = $_SESSION['username'];
 $name = $_SESSION['name'];
 $birthday = $_SESSION['birthday'];
 $biday = new DateTime($birthday);
 $today = new DateTime();
 $diff = $today->diff($biday);
 $birthplace = $_SESSION['tempat_lahir'];
+$photo = $_SESSION['photo'];
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +113,7 @@ $birthplace = $_SESSION['tempat_lahir'];
 
     </nav>
     <div class="col-sm-12">
-        <a href="personalInfo.php"><img src="img/ariana.jpg" class="rounded mx-auto d-block rounded-circle"
+    <a href="personalInfo.php"><img src="img/photo/<?php echo $username; ?>/<?php echo $photo; ?>" class="rounded mx-auto d-block rounded-circle"
                                         style="width: 300px;" height="300px;" alt="logoIbuAnak"></a>
         <h2><?php echo $name; ?></h2>
         <h2><?php echo "Umur " . $diff->y . " Tahun"; ?></h2>
@@ -122,7 +124,7 @@ $birthplace = $_SESSION['tempat_lahir'];
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-sm-4 ">
-                    <a href="TumbuhKembang.php"><img src="img/abc.jpg" alt="logoABC" style="width:100%; height: 63%;"></a>
+                    <a href="infoAnak.php"><img src="img/abc.jpg" alt="logoABC" style="width:100%; height: 63%;"></a>
                 </div>
                 <div class="col-sm-4">
                     <a href="Informasi.php"><img src="img/book.jpg" alt="logoBook" style="width: 100%; height: 63%;"></a>
